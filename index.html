@@ -78,7 +78,7 @@ a{color:var(--ink)}a:hover{color:var(--accent)}
 
 .people{display:flex;flex-wrap:wrap;gap:56px 64px;margin-top:56px}
 .person{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:22px}
-.person .portrait{flex:none;width:220px}
+.person .portrait{flex:none;width:300px}
 img.portrait{display:block;height:auto;padding:0;object-fit:cover;object-position:50% 35%}
 .person .who{display:flex;flex-direction:column;gap:6px}
 .person .who h3{font-size:28px}
@@ -170,6 +170,8 @@ footer .logo .sub{font-size:8px}
 footer .meta{font-size:15px;color:var(--muted)}
 footer .links{display:flex;gap:24px}
 
+@media (min-width:1700px){.person{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto 1fr;column-gap:44px;row-gap:22px;align-content:start}.person .portrait{grid-row:1 / span 3;width:320px}.person .who{padding-top:6px}}
+@media (max-width:640px){.person .portrait{width:260px}}
 @media (prefers-reduced-motion:reduce){.chev{transition:none}html{scroll-behavior:auto}}
 @media (max-width:1000px){.nav nav .navlink{display:none}}
 @media (max-width:640px){.hero{min-height:620px}.hero-copy{padding-block:48px 56px}.section{padding-block:72px}}
