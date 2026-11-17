@@ -124,13 +124,15 @@ h2.h{font-size:clamp(32px,3.6vw,48px);color:var(--accent)}
 .land ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:16px;color:var(--muted)}
 
 .lands.three .land{flex:1 1 300px}
-.examples{margin-top:72px;padding-top:40px;border-top:1px solid var(--rule)}
-.examples .lands{margin-top:28px}
+.examples .lands{margin-top:44px}
 .examples .land{border-top:0;padding-top:0;gap:14px}
-.examples .land h3{font-size:22px}
+.examples .land h3{font-size:24px}
 
 /* FAQ accordion */
-.faqs{margin-top:40px;display:flex;flex-direction:column;max-width:1100px}
+.faqs{margin-top:40px;display:flex;flex-direction:column}
+#faq > .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;gap:40px 80px}
+#faq .intro{flex:1 1 340px;min-width:0;max-width:none}
+#faq .faqs{flex:1 1 520px;min-width:0;margin-top:0}
 .faq{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
 .faq:last-child{border-bottom:1px solid var(--rule)}
 .faqq{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;text-align:left;background:transparent;border:0;padding:26px 0;cursor:pointer;font-family:"Source Serif 4",Georgia,serif;font-weight:500;font-size:22px;line-height:1.3;letter-spacing:-0.01em;color:var(--ink)}
@@ -257,26 +259,32 @@ footer .links{display:flex;gap:24px}
         </ul>
       </article>
     </div>
-    <div class="examples">
-      <p class="eyebrow">Where AI helps</p>
-      <div class="lands">
-        <article class="land">
-          <h3 class="h">Bring in more revenue</h3>
-          <ul>
-            <li>Reach new leads faster, before they call someone else</li>
-            <li>Keep every opportunity moving until it closes</li>
-            <li>Win more repeat business from the customers you already have</li>
-          </ul>
-        </article>
-        <article class="land">
-          <h3 class="h">Lower the cost of running your office</h3>
-          <ul>
-            <li>Cut the manual entry and retyping between systems</li>
-            <li>Take routine paperwork off your people</li>
-            <li>Free your team to spend its time on customers and growth</li>
-          </ul>
-        </article>
-      </div>
+  </div>
+</section>
+
+<!-- WHERE AI HELPS -->
+<section id="helps">
+  <div class="wrap section examples">
+    <div class="intro">
+      <h2 class="h">Where AI helps.</h2>
+    </div>
+    <div class="lands">
+      <article class="land">
+        <h3 class="h">Bring in more revenue</h3>
+        <ul>
+          <li>Reach new leads faster, before they call someone else</li>
+          <li>Keep every opportunity moving until it closes</li>
+          <li>Win more repeat business from the customers you already have</li>
+        </ul>
+      </article>
+      <article class="land">
+        <h3 class="h">Lower the cost of running your office</h3>
+        <ul>
+          <li>Cut the manual entry and retyping between systems</li>
+          <li>Take routine paperwork off your people</li>
+          <li>Free your team to spend its time on customers and growth</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
