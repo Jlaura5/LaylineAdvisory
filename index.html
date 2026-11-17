@@ -148,7 +148,6 @@ h2.h{font-size:clamp(32px,3.6vw,48px);color:var(--accent)}
 .course .name{font-family:"Source Serif 4",Georgia,serif;font-weight:500;font-size:22px;letter-spacing:-0.01em;fill:var(--ink)}
 .course .name.end{fill:var(--accent-deep)}
 .course .note{font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-size:15px;fill:var(--accent-deep)}
-.course .wind path{fill:none;stroke:var(--accent-deep);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 .course-tall .name{font-size:16px}
 .course + .lands{margin-top:44px}
 .course + .lands .land{border-top:1px solid var(--rule)}
@@ -266,7 +265,7 @@ footer .links{display:flex;gap:24px}
       <p class="aside">Every engagement starts with the assessment. What follows depends on what it finds.</p>
     </div>
     <figure class="course" aria-label="Every engagement starts with the assessment. From there the course runs through Build or through Advise and oversee, and both reach the result you want.">
-      <svg class="course-wide" viewBox="0 -44 1200 366" data-boat="0.5" data-stop="50" role="img" aria-hidden="true" focusable="false">
+      <svg class="course-wide" viewBox="0 -44 1200 366" data-boat="0.5" role="img" aria-hidden="true" focusable="false">
         <path class="base" d="M70 150 L600 33 L1110 150"/>
         <path class="base" d="M70 150 L600 267 L1110 150"/>
         <path class="leg" pathLength="1" d="M70 150 L600 33 L1110 150"/>
@@ -281,11 +280,10 @@ footer .links{display:flex;gap:24px}
           <text class="note" x="850" y="118" text-anchor="middle" transform="rotate(12.9 850 118)">layline</text>
           <text class="note" x="860" y="232" text-anchor="middle" transform="rotate(-12.9 860 232)">layline</text>
         </g>
-        <g class="wind"><path d="M1190 286 L1120 286 M1134 278 L1120 286 L1134 294"/><text class="note" x="1155" y="272" text-anchor="middle">wind</text></g>
         <g class="boat"><path class="sail" d="M50 6 L53 66 L77 62 C77 42 68 20 50 6 Z"/><path class="jib" d="M47 30 L46 67 L27 70 Z"/><path class="sail" d="M23 80 L80 69 L80.7 72.5 L23.7 83.5 Z"/></g>
         <g class="boat alt"><path class="sail" d="M50 6 L53 66 L77 62 C77 42 68 20 50 6 Z"/><path class="jib" d="M47 30 L46 67 L27 70 Z"/><path class="sail" d="M23 80 L80 69 L80.7 72.5 L23.7 83.5 Z"/></g>
       </svg>
-      <svg class="course-tall" viewBox="0 -16 340 346" data-boat="0.34" data-stop="48" role="img" aria-hidden="true" focusable="false">
+      <svg class="course-tall" viewBox="0 -24 340 354" data-boat="0.34" role="img" aria-hidden="true" focusable="false">
         <path class="base" d="M170 290 L95 165 L170 40"/>
         <path class="base" d="M170 290 L245 165 L170 40"/>
         <path class="leg" pathLength="1" d="M170 290 L95 165 L170 40"/>
@@ -296,7 +294,7 @@ footer .links{display:flex;gap:24px}
           <text class="name" x="74" y="171" text-anchor="end">Build</text>
           <text class="name" x="264" y="161">Advise and</text>
           <text class="name" x="264" y="181">oversee</text>
-          <text class="name end" x="170" y="4" text-anchor="middle">The result you want</text>
+          <text class="name end" x="170" y="-4" text-anchor="middle">The result you want</text>
         </g>
         <g class="boat"><path class="sail" d="M50 6 L53 66 L77 62 C77 42 68 20 50 6 Z"/><path class="jib" d="M47 30 L46 67 L27 70 Z"/><path class="sail" d="M23 80 L80 69 L80.7 72.5 L23.7 83.5 Z"/></g>
         <g class="boat alt"><path class="sail" d="M50 6 L53 66 L77 62 C77 42 68 20 50 6 Z"/><path class="jib" d="M47 30 L46 67 L27 70 Z"/><path class="sail" d="M23 80 L80 69 L80.7 72.5 L23.7 83.5 Z"/></g>
@@ -522,9 +520,9 @@ footer .links{display:flex;gap:24px}
       return {
         svg: svg,
         size: parseFloat(svg.getAttribute('data-boat')) || 0.4,
-        stop: parseFloat(svg.getAttribute('data-stop')) || 40,
         legs: [].slice.call(svg.querySelectorAll('.leg')),
-        boats: [].slice.call(svg.querySelectorAll('.boat'))
+        boats: [].slice.call(svg.querySelectorAll('.boat')),
+        buoy: svg.querySelector('.buoy')
       };
     });
     fig.classList.add('sailing');
@@ -538,10 +536,11 @@ footer .links{display:flex;gap:24px}
       p = Math.max(0, Math.min(1, p));
       charts.forEach(function (c) {
         if (!c.svg.getBoundingClientRect().width) return;            // the version not shown at this width
+        var arriving = Math.max(0, Math.min(1, (1 - p) / 0.08));        // 1 until the last stretch, 0 at the mark
+        if (c.buoy) c.buoy.style.opacity = arriving;                   // the boat takes the buoy's place inside the ring
         c.legs.forEach(function (leg, i) {
           var total = leg.getTotalLength();
-          var reach = (total - c.stop) / total;                        // the boats pull up just short of the mark
-          var d = total * Math.min(p, reach);
+          var d = total * p;
           var at = leg.getPointAtLength(d);
           var ahead = leg.getPointAtLength(Math.min(total, d + 2));
           var behind = leg.getPointAtLength(Math.max(0, d - 2));
@@ -552,7 +551,7 @@ footer .links{display:flex;gap:24px}
           boat.setAttribute('transform',
             'translate(' + (at.x - flip * 50 * c.size) + ' ' + (at.y - 80 * c.size) + ') scale(' + (flip * c.size) + ' ' + c.size + ')');
           // Both routes end at the same mark, so the second boat fades as the two converge.
-          if (i > 0) boat.style.opacity = Math.max(0, Math.min(1, (reach - p) / 0.1));
+          if (i > 0) boat.style.opacity = arriving;
         });
       });
     }
