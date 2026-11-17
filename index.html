@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layline Advisory Partners — Where to start with AI</title>
+<meta name="description" content="Layline Advisory Partners helps owner-run and investor-backed businesses find where AI pays off and put it to work. Seattle, WA.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..600&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
+<style>
+/* ------------------------------------------------------------------
+   Layline Advisory Partners — home page
+   Palette (from the logo): cream #F4F0EA · paper #FFFFFF · charcoal ink #2A2A2C ·
+            warm grey text #5E5A5C · rule #DDD6CF · mauve #A99BA4 (jib) ·
+            darker mauve #7E6C78 (accent for links, icons, small marks)
+   Type:    Source Serif 4 (wordmark + headings) · Hanken Grotesk (body, letterspaced label)
+   Images:  images/sailboat-rainier.jpg (hero, 1536px wide; upscale for large screens) · portrait placeholder in #team
+   Logo:    inline SVG in .logo (nav and footer) — edit once in each place
+   ------------------------------------------------------------------ */
+:root{
+  --bg:#F4F0EA; --paper:#FFFFFF; --ink:#2A2A2C; --muted:#5E5A5C; --rule:#DDD6CF;
+  --accent:#7E6C78; --accent-deep:#75646F; --accent-soft:#A99BA4; --on-dark-muted:#B9B2B5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:var(--ink)}a:hover{color:var(--accent)}
+.h{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-weight:500;letter-spacing:-0.015em;line-height:1.1;text-wrap:balance;margin:0}
+.eyebrow{font-size:14px;font-weight:600;letter-spacing:0.02em;color:var(--accent-deep);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid var(--ink);cursor:pointer;font-family:inherit;background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:#EAE4DC;color:var(--ink);border-color:var(--ink)}
+.btn.light{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.btn.light:hover{background:#FFFFFF;border-color:#FFFFFF;color:var(--ink)}
+.btn.ghostlight{background:transparent;color:var(--bg);border-color:rgba(244,240,234,0.7)}
+.btn.ghostlight:hover{background:rgba(244,240,234,0.12);border-color:var(--bg);color:var(--bg)}
+.btn.small{min-height:44px;padding:0 20px;font-size:15px}
+.navlink{text-decoration:none;font-weight:500;font-size:15px;color:var(--muted)}
+.navlink:hover{color:var(--ink)}
+.navlink.onphoto{color:var(--ink)}
+.navlink.onphoto:hover{color:var(--accent)}
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.logo svg{flex:0 0 auto;width:40px;height:40px}
+.logo .sail{fill:var(--ink)}
+.logo .jib{fill:var(--accent-soft)}
+.logo .text{display:flex;flex-direction:column;gap:3px}
+.logo .name{font-family:"Source Serif 4",Georgia,serif;font-size:23px;font-weight:500;letter-spacing:-0.015em;line-height:1}
+.logo .sub{font-size:9px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;line-height:1}
+
+/* Hero */
+.hero{position:relative;min-height:800px;display:flex;flex-direction:column;color:var(--bg);background:#4A5A6C url("images/sailboat-rainier.jpg") center 60%/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(42,42,44,0) 0%,rgba(42,42,44,0.08) 45%,rgba(42,42,44,0.72) 100%)}
+.hero > *{position:relative}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-block:26px}
+.nav nav{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+.hero-copy{display:flex;flex-direction:column;justify-content:flex-end;gap:26px;padding-block:120px 88px;flex:1 1 auto}
+.hero h1{font-size:clamp(46px,6vw,92px);max-width:14ch;color:var(--bg)}
+.hero .lede{margin:0;font-size:21px;max-width:52ch;color:rgba(244,240,234,0.88)}
+.hero .eyebrow{color:rgba(244,240,234,0.8)}
+/* Who we are */
+.team-grid{display:flex;flex-wrap:wrap;gap:48px 80px;align-items:flex-start;margin-top:56px}
+.portrait{flex:0 1 340px;min-width:0;aspect-ratio:4/5;max-width:100%;background:#EAE4DC;border:1px solid var(--rule);border-radius:12px;display:flex;align-items:flex-end;padding:20px;font-size:13px;font-weight:600;color:var(--muted)}
+.bio{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.bio .who{display:flex;flex-direction:column;gap:6px}
+.bio .who h3{font-size:30px}
+.bio .role{margin:0;font-size:15px;font-weight:600;letter-spacing:0.02em;color:var(--accent-deep)}
+.bio > p{margin:0;font-size:18px;line-height:1.6;color:var(--muted)}
+.creds{display:flex;flex-wrap:wrap;gap:16px}
+.cred{flex:1 1 200px;min-width:0;padding:18px 20px;background:var(--bg);border:1px solid var(--rule);border-radius:12px;display:flex;flex-direction:column;gap:6px}
+.cred .k{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-deep)}
+.cred .v{font-size:16px;line-height:1.45}
+.bio .eng{font-size:16px}
+.bio .eng strong{color:var(--ink);font-weight:500}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+
+.people{display:flex;flex-wrap:wrap;gap:56px 64px;margin-top:56px}
+.person{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.person .portrait{flex:none;width:220px}
+.person .who{display:flex;flex-direction:column;gap:6px}
+.person .who h3{font-size:28px}
+.person .role{margin:0;font-size:15px;font-weight:600;letter-spacing:0.02em;color:var(--accent-deep)}
+.person > p{margin:0;font-size:17px;line-height:1.6;color:var(--muted)}
+
+/* Sections */
+.section{padding-block:104px}
+.section.tight{padding-block:112px 104px}
+.white{background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.split{display:flex;flex-wrap:wrap;gap:48px 80px}
+.split > .lead{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.split > .body{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:22px;font-size:19px;line-height:1.6;color:var(--muted)}
+.split > .body p{margin:0}
+.intro{display:flex;flex-direction:column;gap:16px;max-width:640px}
+.intro p.sub{margin:0;font-size:18px;color:var(--muted)}
+h2.h{font-size:clamp(32px,3.6vw,48px);color:var(--accent)}
+.cards{display:flex;flex-wrap:wrap;gap:20px;margin-top:48px}
+.card{flex:1 1 240px;min-width:0;background:var(--paper);border:1px solid var(--rule);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.card h3{font-size:22px}
+.card svg{stroke:var(--accent)}
+.card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:16px;color:var(--muted)}
+.steps-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.steps-head .intro{flex:1 1 480px;max-width:none}
+.steps-head p.aside{margin:0;font-size:18px;max-width:38ch;color:var(--muted);flex:0 1 420px}
+.steps{display:flex;flex-wrap:wrap;gap:32px;margin-top:56px}
+.step{flex:1 1 230px;min-width:0;display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--rule)}
+.step .num{font-size:40px}
+.step .num.zero{color:var(--accent)}
+.step h3{font-size:22px}
+.step p{margin:0;font-size:16px;color:var(--muted)}
+
+/* Where the work lands */
+.lands{display:flex;flex-wrap:wrap;gap:32px;margin-top:56px}
+.land{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:18px;padding-top:24px;border-top:3px solid var(--ink)}
+.land.accent{border-top-color:var(--accent)}
+.land h3{font-size:30px}
+.land p{margin:0;font-size:17px;color:var(--muted)}
+.land ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:16px;color:var(--muted)}
+
+.lands.three .land{flex:1 1 300px}
+.examples{margin-top:72px;padding-top:40px;border-top:1px solid var(--rule)}
+.examples .lands{margin-top:28px}
+.examples .land{border-top:0;padding-top:0;gap:14px}
+.examples .land h3{font-size:22px}
+
+/* FAQ accordion */
+.faqs{margin-top:40px;display:flex;flex-direction:column}
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.faq:last-child{border-bottom:1px solid var(--rule)}
+.faqq{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;text-align:left;background:transparent;border:0;padding:26px 0;cursor:pointer;font-family:"Source Serif 4",Georgia,serif;font-weight:500;font-size:22px;line-height:1.3;letter-spacing:-0.01em;color:var(--ink)}
+.faqq:hover{color:var(--accent)}
+.faqq:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:4px}
+.chev{flex:0 0 36px;width:36px;height:36px;border:1px solid var(--rule);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .25s ease}
+.faqq[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.faqa{margin:0 0 30px;font-size:17px;line-height:1.6;color:var(--muted);max-width:68ch}
+.faqa[hidden]{display:none}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--bg)}
+.contact .split{gap:56px 80px;align-items:flex-start}
+.contact .lead{flex:1 1 400px;gap:22px}
+.contact h2{font-size:clamp(36px,4.2vw,60px);color:var(--bg)}
+.contact p.sub{margin:0;font-size:18px;color:var(--on-dark-muted);max-width:40ch}
+.email{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.email .label{font-size:14px;font-weight:600;color:var(--on-dark-muted)}
+.email .addr{font-size:20px;font-weight:500;user-select:all}
+form{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.fields{display:flex;flex-wrap:wrap;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px;flex:1 1 260px;min-width:0}
+.field label{font-size:14px;font-weight:600;color:var(--on-dark-muted)}
+.field input,.field textarea{font-family:inherit;font-size:16px;padding:14px 16px;border:1px solid #B8B2B5;border-radius:8px;background:#FFFFFF;color:var(--ink);min-height:52px}
+.field input:focus,.field textarea:focus{outline:3px solid var(--accent);outline-offset:2px}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+form p.note{margin:0;font-size:14px;color:var(--on-dark-muted)}
+
+/* Footer */
+footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-block:36px}
+footer .logo svg{width:32px;height:32px}
+footer .logo .name{font-size:19px}
+footer .logo .sub{font-size:8px}
+footer .meta{font-size:15px;color:var(--muted)}
+footer .links{display:flex;gap:24px}
+
+@media (prefers-reduced-motion:reduce){.chev{transition:none}html{scroll-behavior:auto}}
+@media (max-width:640px){.hero{min-height:680px}.hero-copy{padding-block:80px 56px}.section{padding-block:72px}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="top" class="hero" aria-label="A sailboat on the water at golden hour with Mount Rainier behind">
+  <header class="wrap nav">
+    <a href="#top" class="logo" aria-label="Layline Advisory Partners home">
+      <svg aria-hidden="true" viewBox="0 0 100 100"><path class="sail" d="M50 6 L53 66 L77 62 C77 42 68 20 50 6 Z"/><path class="jib" d="M47 30 L46 67 L27 70 Z"/><path class="sail" d="M23 80 L80 69 L80.7 72.5 L23.7 83.5 Z"/></svg>
+      <span class="text">
+        <span class="name">Layline</span>
+        <span class="sub">Advisory Partners</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <a class="navlink onphoto" href="#about">About</a>
+      <a class="navlink onphoto" href="#services">What we do</a>
+      <a class="navlink onphoto" href="#team">Who we are</a>
+      <a class="navlink onphoto" href="#faq">Before we meet</a>
+      <a class="btn small" href="#contact">Book a conversation</a>
+    </nav>
+  </header>
+  <div class="wrap hero-copy">
+    <p class="eyebrow">Independent AI and systems advice for owner-run and investor-backed businesses · Seattle</p>
+    <h1 class="h">Where to start with AI.</h1>
+    <p class="lede">You’ve read what AI can do. Deciding where it fits in your business is the hard part. We help you find where it pays off and put it to work.</p>
+    <div class="ctas">
+      <a class="btn light" href="#contact">Book a discovery conversation</a>
+      <a class="btn ghostlight" href="#about">Get to know us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="wrap section tight split">
+  <div class="lead">
+    <p class="eyebrow">About Layline</p>
+    <h2 class="h">We start with how your business runs.</h2>
+  </div>
+  <div class="body">
+    <p>Most business owners have read plenty about AI and have nobody to ask where it fits. The team is busy, the office is stretched, and every vendor has a pitch.</p>
+    <p>In sailboat racing, the layline is the course a boat sets to reach the mark with no wasted distance. You cannot sail straight into the wind, so it is the most efficient route the conditions allow, and it moves when the wind shifts. We work the same way. We learn how your business actually runs, set the most direct line to the result you want, and adjust as conditions change.</p>
+    <p>We spend time with the people doing the work, map the process and the systems behind it, and put a number on each problem. Whether the answer is a custom AI automation or advice on your systems and what the market already offers, we are your trusted advisor for all things AI in your business.</p>
+    <p style="color:var(--ink);font-weight:500">Based in the Seattle area, working with owner-run and investor-backed businesses across the Pacific Northwest.</p>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section id="services" class="white">
+  <div class="wrap section">
+    <div class="steps-head">
+      <div class="intro">
+        <p class="eyebrow">What we do</p>
+        <h2 class="h">Assess, build, advise.</h2>
+      </div>
+      <p class="aside">Every engagement starts with the assessment. What follows depends on what it finds.</p>
+    </div>
+    <div class="lands three">
+      <article class="land accent">
+        <h3 class="h">Assess</h3>
+        <p>A close review of your processes and systems.</p>
+        <ul>
+          <li>Time with the people doing the work</li>
+          <li>A ranked list of fixes, each with its payback</li>
+          <li>Our recommendation for each: build it or buy it</li>
+        </ul>
+      </article>
+      <article class="land">
+        <h3 class="h">Build</h3>
+        <p>Custom automations and integrations on top of the systems you already run.</p>
+        <ul>
+          <li>A defined scope, agreed before work starts</li>
+          <li>A person stays in the loop where decisions need one</li>
+          <li>Tested with your team before handover</li>
+        </ul>
+      </article>
+      <article class="land">
+        <h3 class="h">Advise and oversee</h3>
+        <p>When the answer is a new system, we help you choose it, negotiate it and hold the vendor to the plan.</p>
+        <ul>
+          <li>A selection run against what your business needs</li>
+          <li>The vendor installs it, and we keep it on track</li>
+          <li>We build what the new system leaves uncovered</li>
+        </ul>
+      </article>
+    </div>
+    <div class="examples">
+      <p class="eyebrow">Where AI helps</p>
+      <div class="lands">
+        <article class="land">
+          <h3 class="h">Bring in more revenue</h3>
+          <ul>
+            <li>Reach new leads faster, before they call someone else</li>
+            <li>Keep every opportunity moving until it closes</li>
+            <li>Win more repeat business from the customers you already have</li>
+          </ul>
+        </article>
+        <article class="land">
+          <h3 class="h">Lower the cost of running your office</h3>
+          <ul>
+            <li>Cut the manual entry and retyping between systems</li>
+            <li>Take routine paperwork off your people</li>
+            <li>Free your team to spend its time on customers and growth</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section id="team" class="white" style="border-bottom:0">
+  <div class="wrap section">
+    <div class="intro">
+      <p class="eyebrow">Who we are</p>
+      <h2 class="h">Who you’ll be working with.</h2>
+    </div>
+    <div class="people">
+      <article class="person">
+        <div class="portrait" role="img" aria-label="Portrait placeholder">[Portrait]</div>
+        <div class="who">
+          <h3 class="h">Johnathon Laura</h3>
+          <p class="role">Co-founder</p>
+        </div>
+        <p>Johnathon co-founded Layline after a decade in management consulting and enterprise software. He began at PwC, advising Fortune 500 companies on large systems and business transformations. At Icertis, he spent five years in the sales and partner organization, helping the company grow from $75M to $400M in annual recurring revenue and putting AI to work across its sales teams. He now helps owner-run and investor-backed businesses work out where AI belongs and get it running.</p>
+      </article>
+      <article class="person">
+        <div class="portrait" role="img" aria-label="Portrait placeholder">[Portrait]</div>
+        <div class="who">
+          <h3 class="h">Lucas Haroon</h3>
+          <p class="role">Co-founder</p>
+        </div>
+        <p>Lucas co-founded Layline after ten years in software sales and business development, at companies including Outreach, Kevala and SS&amp;C Blue Prism. At SS&amp;C Blue Prism, he helped customers navigate AI automation, taking manual work off their teams and getting more from the people they have. He brings that view to every Layline engagement.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="border-top:1px solid var(--rule)">
+  <div class="wrap section">
+    <div class="intro">
+      <p class="eyebrow">Before we meet</p>
+      <h2 class="h">Questions people usually have first.</h2>
+    </div>
+    <div class="faqs" id="faq-list">
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="true" aria-controls="faq-0"><span>Do I need to know what I want automated?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-0">No. Most people come to us with a frustration: quotes that go cold, invoices that pile up, a phone that rings out. Finding and ranking the problems is what the assessment is for.</p>
+      </div>
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="false" aria-controls="faq-1"><span>Will this replace the software we already use?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-1" hidden>Sometimes. If your current tools can do the job, we build around them. If another system does most of it out of the box, we will say so and help you choose it.</p>
+      </div>
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="false" aria-controls="faq-5"><span>Do you run system migrations?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-5" hidden>No. Installing a new system is the vendor’s job. We help you pick it, plan it and keep it on track, and we build what it leaves uncovered.</p>
+      </div>
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="false" aria-controls="faq-2"><span>Who checks the work the automation does?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-2" hidden>Your team does, where it matters. Every workflow has a point where a person reviews exceptions and approves what moves forward. We design that checkpoint in from the first draft.</p>
+      </div>
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="false" aria-controls="faq-3"><span>What happens to our data?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-3" hidden>It stays in your systems. We agree in writing what we can access, what the automation touches and what it may never do, before anything is built.</p>
+      </div>
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="false" aria-controls="faq-4"><span>Is this a long-term commitment?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-4" hidden>No. The assessment is a complete engagement. Clients who stay do so for a build or for ongoing oversight.</p>
+      </div>
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="false" aria-controls="faq-7"><span>Who does the work, and who owns it?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-7" hidden>One accountable person runs the engagement from the first conversation to handover. Specialist engineers join for the build, chosen for what your project needs. Everything built for you runs in your systems and stays yours.</p>
+      </div>
+      <div class="faq">
+        <button type="button" class="faqq" aria-expanded="false" aria-controls="faq-6"><span>What happens on the first call?</span><span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <p class="faqa" id="faq-6" hidden>We talk for about thirty minutes about how your business runs and what gets in the way. If it looks like a fit, we set up a short visit to see the work firsthand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap section tight split">
+    <div class="lead">
+      <h2 class="h">Tell us what’s eating your week.</h2>
+      <p class="sub">A short note is enough. We reply within a business day and suggest a time to talk.</p>
+      <div class="email">
+        <span class="label">Prefer email?</span>
+        <span class="addr">[hello@yourdomain.com]</span>
+      </div>
+    </div>
+    <!-- TODO: point this form at a handler (Formspree, Netlify Forms, your CRM) by setting action="" and method="post". -->
+    <form action="#" method="post" onsubmit="event.preventDefault();">
+      <div class="fields">
+        <div class="field">
+          <label for="c-name">Name</label>
+          <input id="c-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input id="c-email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-company">Company (optional)</label>
+        <input id="c-company" name="company" type="text" autocomplete="organization">
+      </div>
+      <div class="field">
+        <label for="c-msg">What would you like to improve?</label>
+        <textarea id="c-msg" name="message" rows="5" required></textarea>
+      </div>
+      <p class="note">Please leave out passwords, account details and other sensitive information.</p>
+      <button type="submit" class="btn light" style="align-self:flex-start">Book a discovery conversation</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap">
+  <div class="logo">
+    <svg aria-hidden="true" viewBox="0 0 100 100"><path class="sail" d="M50 6 L53 66 L77 62 C77 42 68 20 50 6 Z"/><path class="jib" d="M47 30 L46 67 L27 70 Z"/><path class="sail" d="M23 80 L80 69 L80.7 72.5 L23.7 83.5 Z"/></svg>
+    <span class="text">
+      <span class="name">Layline</span>
+      <span class="sub">Advisory Partners</span>
+    </span>
+  </div>
+  <span class="meta">Seattle, Washington · © 2026</span>
+  <div class="links">
+    <a class="navlink" href="#">LinkedIn</a>
+    <a class="navlink" href="#">Privacy</a>
+    <a class="navlink" href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion: one open at a time, keyboard accessible via native <button>.
+  (function () {
+    var list = document.getElementById('faq-list');
+    if (!list) return;
+    var buttons = list.querySelectorAll('.faqq');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-expanded', 'false');
+          var p = document.getElementById(b.getAttribute('aria-controls'));
+          if (p) p.hidden = true;
+        });
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          var panel = document.getElementById(btn.getAttribute('aria-controls'));
+          if (panel) panel.hidden = false;
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
