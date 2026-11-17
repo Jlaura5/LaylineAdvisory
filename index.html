@@ -13,7 +13,7 @@
             warm grey text #5E5A5C · rule #DDD6CF · mauve #A99BA4 (jib) ·
             darker mauve #7E6C78 (accent for links, icons, small marks)
    Type:    Source Serif 4 (wordmark + headings) · Hanken Grotesk (body, letterspaced label)
-   Images:  images/sailboat-rainier.jpg (hero, 1536px wide; upscale for large screens) · portrait placeholder in #team
+   Images:  images/sailboat-rainier.jpg (hero, 1536px wide; upscale for large screens) · portraits in #team: images/johnathon-laura.jpg, images/lucas-haroon.jpg
    Logo:    inline SVG in .logo (nav and footer) — edit once in each place
    ------------------------------------------------------------------ */
 :root{
@@ -78,8 +78,13 @@ a{color:var(--ink)}a:hover{color:var(--accent)}
 .people{display:flex;flex-wrap:wrap;gap:56px 64px;margin-top:56px}
 .person{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:22px}
 .person .portrait{flex:none;width:220px}
+img.portrait{display:block;height:auto;padding:0;object-fit:cover;object-position:50% 35%}
 .person .who{display:flex;flex-direction:column;gap:6px}
 .person .who h3{font-size:28px}
+.person .who h3 a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.person .who h3 a:hover{color:var(--accent)}
+.person .who h3 .li{flex:none;color:var(--muted)}
+.person .who h3 a:hover .li{color:var(--accent)}
 .person .role{margin:0;font-size:15px;font-weight:600;letter-spacing:0.02em;color:var(--accent-deep)}
 .person > p{margin:0;font-size:17px;line-height:1.6;color:var(--muted)}
 
@@ -284,17 +289,17 @@ footer .links{display:flex;gap:24px}
     </div>
     <div class="people">
       <article class="person">
-        <div class="portrait" role="img" aria-label="Portrait placeholder">[Portrait]</div>
+        <img class="portrait" src="images/johnathon-laura.jpg" alt="Johnathon Laura" width="800" height="800" loading="lazy">
         <div class="who">
-          <h3 class="h">Johnathon Laura</h3>
+          <h3 class="h"><a href="https://www.linkedin.com/in/johnathonlaura/" target="_blank" rel="noopener" aria-label="Johnathon Laura on LinkedIn (opens in a new tab)">Johnathon Laura<svg class="li" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3>
           <p class="role">Co-founder</p>
         </div>
         <p>Johnathon co-founded Layline after a decade in management consulting and enterprise software. He began at PwC, advising Fortune 500 companies on large systems and business transformations. At Icertis, he spent five years in the sales and partner organization, helping the company grow from $75M to $400M in annual recurring revenue and putting AI to work across its sales teams. He now helps owner-run and investor-backed businesses work out where AI belongs and get it running.</p>
       </article>
       <article class="person">
-        <div class="portrait" role="img" aria-label="Portrait placeholder">[Portrait]</div>
+        <img class="portrait" src="images/lucas-haroon.jpg" alt="Lucas Haroon" width="400" height="500" loading="lazy">
         <div class="who">
-          <h3 class="h">Lucas Haroon</h3>
+          <h3 class="h"><a href="https://www.linkedin.com/in/lucas-haroon-59780964/" target="_blank" rel="noopener" aria-label="Lucas Haroon on LinkedIn (opens in a new tab)">Lucas Haroon<svg class="li" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></h3>
           <p class="role">Co-founder</p>
         </div>
         <p>Lucas co-founded Layline after ten years in software sales and business development, at companies including Outreach, Kevala and SS&amp;C Blue Prism. At SS&amp;C Blue Prism, he helped customers navigate AI automation, taking manual work off their teams and getting more from the people they have. He brings that view to every Layline engagement.</p>
