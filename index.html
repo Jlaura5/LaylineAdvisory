@@ -13,7 +13,7 @@
             warm grey text #5E5A5C · rule #DDD6CF · mauve #A99BA4 (jib) ·
             darker mauve #7E6C78 (accent for links, icons, small marks)
    Type:    Source Serif 4 (wordmark + headings) · Hanken Grotesk (body, letterspaced label)
-   Images:  images/sailboat-rainier.jpg (hero, 1536px wide; upscale for large screens) · portrait placeholder in #team
+   Images:  images/sailboat-rainier.jpg (hero, 1536px wide; upscale for large screens) · portraits in #team: images/johnathon-laura.jpg (second co-founder still a placeholder)
    Logo:    inline SVG in .logo (nav and footer) — edit once in each place
    ------------------------------------------------------------------ */
 :root{
@@ -77,6 +77,7 @@ a{color:var(--ink)}a:hover{color:var(--accent)}
 .people{display:flex;flex-wrap:wrap;gap:56px 64px;margin-top:56px}
 .person{flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:22px}
 .person .portrait{flex:none;width:220px}
+img.portrait{display:block;height:auto;padding:0;object-fit:cover;object-position:50% 35%}
 .person .who{display:flex;flex-direction:column;gap:6px}
 .person .who h3{font-size:28px}
 .person .role{margin:0;font-size:15px;font-weight:600;letter-spacing:0.02em;color:var(--accent-deep)}
@@ -281,7 +282,7 @@ footer .links{display:flex;gap:24px}
     </div>
     <div class="people">
       <article class="person">
-        <div class="portrait" role="img" aria-label="Portrait placeholder">[Portrait]</div>
+        <img class="portrait" src="images/johnathon-laura.jpg" alt="Johnathon Laura" width="800" height="800" loading="lazy">
         <div class="who">
           <h3 class="h">Johnathon Laura</h3>
           <p class="role">Co-founder</p>
