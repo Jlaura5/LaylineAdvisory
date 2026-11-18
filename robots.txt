@@ -1,0 +1,5 @@
+# Every crawler may read the whole site.
+User-agent: *
+Allow: /
+
+Sitemap: https://laylineadvisory.ai/sitemap.xml
